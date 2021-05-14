@@ -45,16 +45,37 @@
   background-color: chartreuse;
 }
 
-#seeResult {
+.otherFunctions {
   background-color: black;
   width: 238px;
   height: 78px;
   border:1px solid black;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   color: whitesmoke;
+}
+
+#seeResult {
+  background-color: powderblue;
+  width: 119px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  border-right: 3px solid black;
+}
+
+#clearBtn {
+  background-color: powderblue;
+  width: 119px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
 }
 
 .numbers {

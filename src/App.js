@@ -8,7 +8,7 @@ export function App() {
   const [firstNumber,setFirstNumber] = useState("");
   const [secondNumber,setSecondNumber] = useState("");
   const [operation,setOperation] = useState("");
-  const [result,setResult] = useState(0);
+  let [result,setResult] = useState(0);
 
   useEffect(
     () => {
@@ -19,7 +19,7 @@ export function App() {
 
   
   function clickNumbers(val){
-    if(operation == ""){
+    if(operation === ""){
     setFirstNumber(firstNumber + val);
     }
     else{
@@ -48,13 +48,20 @@ export function App() {
     }
   }
 
+  function clearDisplay() {
+    setResult = null;
+  }
+
   return (
     <div className="App">
       <div className="calculator">
         <div className="display">{result}</div>
           <div className="buttons">
             <div className="leftSide">
-              <div id="seeResult" onClick={performOperation}>See Result</div>
+              <div className="otherFunctions">
+                <div id="seeResult" onClick={performOperation}>See Result</div>
+                <div id="clearBtn" onClick={clearDisplay}>Clear</div>
+              </div>
                 <div className="numbers">
                   {numbers.map((val,key) => {
                     return (
