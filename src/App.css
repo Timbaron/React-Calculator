@@ -5,6 +5,52 @@
   align-items: center;
 }
 
+.calculator {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: 400px;
+  margin-top: 200px;
+}
+
+.display {
+  width: 318px;
+  height: 78px;
+  border: 1px solid black;
+  background-color: lightsteelblue;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  width: 320px;
+  height: 320px;
+}
+
+.leftSide {
+  flex: 75%;
+  height: 100%;
+  background-color: burlywood;
+}
+
+.rightSide {
+  flex: 25%;
+  height: 100%;
+  background-color: chartreuse;
+}
+
+#clearBtn {
+  background-color: black;
+  width: 238px;
+  height: 78px;
+  border:1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: whitesmoke;
+}
+
 .numbers {
   width: 240px;
   height: 240px;
@@ -13,12 +59,16 @@
   flex-wrap: wrap;
 }
 
-.individualNumber {
-  background-color: cornflowerblue;
+#individualNumber, #operations {
+  background-color: whitesmoke;
   width: 78px;
   height: 78px;
   border:1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#operations {
+  background-color: crimson;
 }
