@@ -5,18 +5,29 @@ export function App() {
   const numbers = [1,2,3,4,5,6,7,8,9];
   const operations = ["+","-","*","/"];
 
-  const [currentOperation,setCurrentOperaton] = useState("");
+  const [firstNumber,setFirstNumber] = useState("");
+  const [secondNumber,setSecondNumber] = useState("");
+  const [operation,setOperation] = useState("");
 
   useEffect(
     () => {
-    console.log(Number(currentOperation));
+    console.log(Number(firstNumber) + " " + operation + " " + secondNumber);
 
-    }, [currentOperation]
+    }, [firstNumber,secondNumber, operation]
   );
 
   
   function clickNumbers(val){
-    setCurrentOperaton(currentOperation + val);
+    if(operation == ""){
+    setFirstNumber(firstNumber + val);
+    }
+    else{
+      setSecondNumber(secondNumber + val);
+    }
+  }
+
+  function clickOperation(val) {
+    setOperation(val);
   }
   return (
     <div className="App">
@@ -37,7 +48,9 @@ export function App() {
               </div>
               <div className="leftSide">
                 {operations.map((val,key) => {
-                  return <div id="operations">{val}</div>
+                  return <div id="operations" 
+                  onClick={() => {clickOperation(val)}}
+                  >{val}</div>
                 } )}
           </div>
         </div>
