@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css';
 
 export function App() {
   const numbers = [1,2,3,4,5,6,7,8,9];
   const operations = ["+","-","*","/"];
+
+  const [currentOperation,setCurrentOperaton] = useState("");
+
+  useEffect(
+    () => {
+    console.log(Number(currentOperation));
+
+    }, [currentOperation]
+  );
+
+  
+  function clickNumbers(val){
+    setCurrentOperaton(currentOperation + val);
+  }
   return (
     <div className="App">
       <div className="calculator">
@@ -13,7 +27,11 @@ export function App() {
               <div id="clearBtn">Clear</div>
                 <div className="numbers">
                   {numbers.map((val,key) => {
-                    return <div id="individualNumber">{val}</div>
+                    return (
+                      <div id="individualNumber"
+                      onClick={() => {clickNumbers(val)}}
+                      >{val}</div>
+                    )
                   })}
                 </div>
               </div>
