@@ -8,12 +8,13 @@ export function App() {
   const [firstNumber,setFirstNumber] = useState("");
   const [secondNumber,setSecondNumber] = useState("");
   const [operation,setOperation] = useState("");
+  const [result,setResult] = useState(0);
 
   useEffect(
     () => {
-    console.log(Number(firstNumber) + " " + operation + " " + secondNumber);
+    console.log(result);
 
-    }, [firstNumber,secondNumber, operation]
+    }, [result]
   );
 
   
@@ -29,13 +30,31 @@ export function App() {
   function clickOperation(val) {
     setOperation(val);
   }
+
+  function performOperation(){
+    switch(operation){
+      case "+":
+        setResult(Number(firstNumber) + Number(secondNumber));
+        break;
+      case "-":
+        setResult(Number(firstNumber) - Number(secondNumber));
+        break;
+      case "*":
+        setResult(Number(firstNumber) * Number(secondNumber));
+        break;
+      case "/":
+        setResult(Number(firstNumber) / Number(secondNumber));
+        break;
+    }
+  }
+
   return (
     <div className="App">
       <div className="calculator">
-        <div className="display"></div>
+        <div className="display">{result}</div>
           <div className="buttons">
             <div className="leftSide">
-              <div id="clearBtn">Clear</div>
+              <div id="seeResult" onClick={performOperation}>See Result</div>
                 <div className="numbers">
                   {numbers.map((val,key) => {
                     return (
